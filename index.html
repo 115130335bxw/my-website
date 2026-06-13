@@ -24,6 +24,7 @@
       </a>
       <nav class="nav" aria-label="主导航">
         <a href="#studio">图生图</a>
+        <a href="#minimax">MiniMax</a>
         <a href="#features">功能</a>
         <a href="#examples">案例</a>
         <a href="#faq">FAQ</a>
@@ -172,6 +173,92 @@
             <h3>生成下载</h3>
             <p>预览结果，微调参数，再导出适合使用的图片。</p>
           </article>
+        </div>
+      </section>
+
+      <section class="minimax-lab reveal" id="minimax">
+        <div class="section-heading">
+          <p class="eyebrow">MiniMax Skills</p>
+          <h2>多模态创作中心</h2>
+          <p>
+            已参考本地 `minimax-skills-main` 项目，整合图片、视频、音乐、语音四类工作流。公开静态站不会暴露 API Key，因此这里生成可复制的本地命令，并模拟任务进度。
+          </p>
+        </div>
+
+        <div class="minimax-shell">
+          <div class="skill-tabs" role="tablist" aria-label="MiniMax 功能">
+            <button class="skill-tab active" type="button" data-skill="image">图片生成</button>
+            <button class="skill-tab" type="button" data-skill="video">视频生成</button>
+            <button class="skill-tab" type="button" data-skill="music">音乐生成</button>
+            <button class="skill-tab" type="button" data-skill="speech">语音合成</button>
+          </div>
+
+          <div class="skill-workspace">
+            <form class="skill-form" id="minimaxForm">
+              <label class="field">
+                <span id="skillPromptLabel">图片提示词</span>
+                <textarea
+                  id="skillPrompt"
+                  rows="5"
+                  placeholder="描述你想生成或编辑的内容"
+                ></textarea>
+              </label>
+
+              <div class="grid-fields">
+                <label class="field">
+                  <span id="skillModeLabel">生成方式</span>
+                  <select id="skillMode"></select>
+                </label>
+                <label class="field">
+                  <span id="skillOptionLabel">输出参数</span>
+                  <select id="skillOption"></select>
+                </label>
+              </div>
+
+              <label class="field" id="skillReferenceWrap">
+                <span id="skillReferenceLabel">参考资源 URL / 本地路径</span>
+                <input
+                  id="skillReference"
+                  type="text"
+                  placeholder="例如：https://example.com/image.jpg 或 C:\path\file.png"
+                />
+              </label>
+
+              <label class="field" id="skillExtraWrap">
+                <span id="skillExtraLabel">补充内容</span>
+                <textarea id="skillExtra" rows="4" placeholder="例如歌词、关键词或结束帧 URL"></textarea>
+              </label>
+
+              <button class="generate-button" type="submit">
+                <span>生成 MiniMax 任务</span>
+                <small>输出命令与模拟任务状态</small>
+              </button>
+            </form>
+
+            <aside class="skill-output">
+              <div class="skill-status-card">
+                <span id="skillBadge">image-01</span>
+                <h3 id="skillTitle">MiniMax 图片生成</h3>
+                <p id="skillDescription">支持文生图、图生图、比例选择和本地保存。</p>
+                <div class="mini-progress">
+                  <div id="skillProgress"></div>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="preview-toolbar">
+                  <span>本地运行命令</span>
+                  <button id="copyCommandButton" type="button">复制</button>
+                </div>
+                <pre id="commandPreview"><code>填写表单后会在这里生成命令。</code></pre>
+              </div>
+
+              <div class="api-note">
+                <strong>安全提示</strong>
+                <p>真实调用请在本地或后端设置 `MINIMAX_API_KEY`，不要把密钥写进 GitHub Pages 这类公开前端页面。</p>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 

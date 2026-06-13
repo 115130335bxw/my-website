@@ -128,6 +128,7 @@ textarea {
 .hero,
 .studio,
 .steps,
+.minimax-lab,
 .features,
 .examples,
 .faq {
@@ -293,6 +294,7 @@ h3 {
 
 .studio,
 .steps,
+.minimax-lab,
 .features,
 .examples,
 .faq {
@@ -372,6 +374,7 @@ h3 {
 }
 
 .field textarea,
+.field input,
 .field select {
   width: 100%;
   border: 1px solid rgba(36, 27, 23, 0.14);
@@ -384,6 +387,10 @@ h3 {
 .field textarea {
   resize: vertical;
   padding: 16px;
+}
+
+.field input {
+  padding: 14px 16px;
 }
 
 .field select {
@@ -568,6 +575,138 @@ h3 {
   gap: 18px;
 }
 
+.minimax-lab {
+  position: relative;
+}
+
+.minimax-shell {
+  overflow: hidden;
+  border: 1px solid rgba(36, 27, 23, 0.12);
+  border-radius: 38px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 184, 77, 0.28), transparent 24rem),
+    rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow);
+}
+
+.skill-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 16px;
+  background: rgba(36, 27, 23, 0.05);
+}
+
+.skill-tab {
+  min-height: 58px;
+  border: 1px solid rgba(36, 27, 23, 0.1);
+  border-radius: 18px;
+  color: var(--muted);
+  background: rgba(255, 248, 236, 0.64);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.skill-tab.active {
+  color: var(--paper);
+  background: linear-gradient(135deg, var(--charcoal), var(--sage));
+}
+
+.skill-workspace {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 18px;
+  padding: 18px;
+}
+
+.skill-form,
+.skill-output {
+  border-radius: 28px;
+}
+
+.skill-form {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  background: var(--paper);
+}
+
+.skill-output {
+  display: grid;
+  gap: 16px;
+}
+
+.skill-status-card,
+.command-card,
+.api-note {
+  padding: 22px;
+  border-radius: 26px;
+  background: var(--charcoal);
+  color: var(--paper);
+}
+
+.skill-status-card {
+  min-height: 210px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(255, 184, 77, 0.48), transparent 12rem),
+    linear-gradient(135deg, #241b17, #4b2b1c);
+}
+
+.skill-status-card span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--charcoal);
+  background: var(--sun);
+  font-weight: 900;
+}
+
+.skill-status-card p,
+.api-note p {
+  color: rgba(255, 248, 236, 0.76);
+  line-height: 1.7;
+}
+
+.mini-progress {
+  height: 11px;
+  overflow: hidden;
+  margin-top: 22px;
+  border-radius: 999px;
+  background: rgba(255, 248, 236, 0.14);
+}
+
+#skillProgress {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sun), #fff8ec);
+  transition: width 0.35s ease;
+}
+
+.command-card {
+  background: #15100e;
+}
+
+.command-card .preview-toolbar {
+  margin-bottom: 12px;
+}
+
+#commandPreview {
+  min-height: 180px;
+  margin: 0;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #ffe8bf;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.api-note {
+  border: 1px solid rgba(255, 184, 77, 0.22);
+  background: rgba(36, 27, 23, 0.92);
+}
+
 .feature-grid {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -677,6 +816,7 @@ h3 {
   }
 
   .hero,
+  .skill-workspace,
   .generator-shell {
     grid-template-columns: 1fr;
   }
@@ -692,6 +832,7 @@ h3 {
 
   .feature-grid,
   .step-grid,
+  .skill-tabs,
   .example-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -714,6 +855,7 @@ h3 {
   .hero,
   .studio,
   .steps,
+  .minimax-lab,
   .features,
   .examples,
   .faq {
@@ -730,6 +872,7 @@ h3 {
   .grid-fields,
   .feature-grid,
   .step-grid,
+  .skill-tabs,
   .example-grid {
     grid-template-columns: 1fr;
   }
